@@ -56,8 +56,8 @@
       --radius: 18px;
       --max: 1120px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%; width:100%; overflow-x:hidden}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
       background: #0f172a;
@@ -93,6 +93,8 @@
       color:var(--text);
       text-align:center;
       line-height:1.35;
+      max-width:100%;
+      overflow-wrap:anywhere;
       transition: transform 220ms ease-out;
       will-change: transform;
     }
@@ -115,6 +117,8 @@
     .hero{
       padding:44px 0 18px;
       display:grid; gap:14px;
+      width:100%;
+      max-width:100%;
     }
     .kicker-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
     .kicker{color:var(--muted); font-weight:600; letter-spacing:.2px}
@@ -138,9 +142,9 @@
       font-size: clamp(16px, 2.2vw, 18px);
       margin:0;
     }
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .hero-actions{margin-top:12px}
-    .hero-socials{margin-top:8px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; width:100%; max-width:100%}
+    .hero-actions{margin-top:12px; width:100%; max-width:100%}
+    .hero-socials{margin-top:8px; width:100%; max-width:100%}
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
     .chip{
       padding:8px 10px;
@@ -200,15 +204,9 @@
       .nav > .btn{margin-left:0; width:100%}
       .cta{gap:8px}
       .hero-actions,
-      .hero-socials{
-        flex-direction:column;
-        align-items:center;
-      }
+      .hero-socials{width:100%; max-width:100%}
       .hero-actions .btn,
-      .hero-socials .btn{
-        width:auto;
-        max-width:100%;
-      }
+      .hero-socials .btn{max-width:100%}
       .contact-card .btn{white-space:normal}
     }
     .reveal{
@@ -312,20 +310,33 @@
       .cta .btn,
       .proj .links .btn{width:100%; flex:1 1 100%}
       .hero-actions{
+        display:flex;
         flex-direction:column;
         gap:12px;
+        width:100%;
+        max-width:100%;
       }
       .hero-actions .btn{
         width:100%;
+        min-width:0;
       }
       .hero-socials{
         display:grid;
         grid-template-columns:1fr 1fr;
         gap:12px;
+        width:100%;
+        max-width:100%;
       }
       .hero-socials .btn{
         width:100%;
+        min-width:0;
       }
+      .hero,
+      .kicker-row,
+      .sub,
+      .chips{max-width:100%}
+      .kicker-row,
+      .sub{overflow-wrap:anywhere}
       .chips{margin-top:10px}
       .contact-card{margin-top:14px}
     }
@@ -394,12 +405,12 @@
         with clear user value, scalable architecture, and thoughtful user experience.
       </p>
 
-      <div class="cta hero-actions">
+      <div class="cta hero-actions hero-primary-ctas">
         <a class="btn primary" href="#projects">View Projects</a>
         <a class="btn" href="#contact">Contact</a>
       </div>
 
-      <div class="cta hero-socials" aria-label="Social links">
+      <div class="cta hero-socials hero-social-ctas" aria-label="Social links">
         <a class="btn primary" href="https://github.com/jalex2003211-sudo" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/%CE%B1%CE%BB%CE%AD%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%82-%CF%80%CE%B1%CF%80%CE%B1%CE%B4%CF%8C%CF%80%CE%BF%CF%85%CE%BB%CE%BF%CF%82-677680346/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a class="btn" href="assets/CV.pdf" target="_blank" rel="noreferrer">CV (PDF)</a>
