@@ -97,6 +97,8 @@
       margin:0;
     }
     .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .hero-actions{margin-top:12px}
+    .hero-socials{margin-top:8px}
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
     .chip{
       padding:8px 10px;
@@ -149,6 +151,10 @@
       nav a{padding:8px 9px}
       .nav > .btn{margin-left:0; width:100%}
       .cta{gap:8px}
+      .hero-actions .btn,
+      .hero-socials .btn{
+        flex:1 1 calc(50% - 8px);
+      }
       .contact-card .btn{white-space:normal}
     }
     .reveal{
@@ -249,7 +255,8 @@
       .card{padding:16px}
       h1{font-size:clamp(30px, 8.5vw, 38px); line-height:1.2}
       .sub{line-height:1.72}
-      .cta .btn{flex:1 1 100%; width:100%}
+      .hero-actions .btn{flex:1 1 100%; width:100%}
+      .hero-socials .btn{flex:1 1 calc(50% - 8px)}
       .proj .links .btn{width:100%}
       .chips{margin-top:10px}
     }
@@ -311,15 +318,18 @@
       <div class="kicker">aka <strong>@AlexPCodes</strong></div>
       <h1>Alexandros Papadopoulos</h1>
       <p class="sub">
-        Product-minded <strong>Full-Stack Developer</strong> delivering end-to-end web products,
-        with a focus on clean architecture, reliable performance, and user-centered UX.
+        Product-minded <strong>Full-Stack Developer</strong> who turns ideas into dependable web products
+        with clear user value, scalable architecture, and thoughtful user experience.
       </p>
 
-      <div class="cta">
+      <div class="cta hero-actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+
+      <div class="cta hero-socials" aria-label="Social links">
         <a class="btn primary" href="https://github.com/jalex2003211-sudo" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/%CE%B1%CE%BB%CE%AD%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%82-%CF%80%CE%B1%CF%80%CE%B1%CE%B4%CF%8C%CF%80%CE%BF%CF%85%CE%BB%CE%BF%CF%82-677680346/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="btn" href="https://www.instagram.com/alexandros__papadopoulos/" target="_blank" rel="noreferrer">Instagram</a>
-        <a class="btn" href="https://www.youtube.com/@Rundy_bubble" target="_blank" rel="noreferrer">YouTube</a>
         <a class="btn" href="assets/CV.pdf" target="_blank" rel="noreferrer">CV (PDF)</a>
         <a class="btn" href="mailto:jalex200321@gmail.com">Email</a>
       </div>
