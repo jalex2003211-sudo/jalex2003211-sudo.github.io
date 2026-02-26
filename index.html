@@ -229,10 +229,6 @@
       opacity:0.9;
     }
 
-    .proj .thumb{
-      transition: opacity 220ms ease-out;
-    }
-
     .proj:hover .thumb{
       opacity: 0.94;
     }
@@ -251,6 +247,7 @@
     }
     .proj .thumb{
       border-radius:14px;
+      transition: opacity 220ms ease-out;
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       height: 160px;
@@ -287,6 +284,9 @@
       .chips{margin-top:10px}
     }
 
+    /* μικρό polish */
+    html { scroll-behavior: smooth; }
+
     @media (prefers-reduced-motion: reduce){
       html { scroll-behavior: auto; }
       .reveal,
@@ -298,12 +298,6 @@
         transform:none !important;
         opacity:1 !important;
       }
-    }
-
-    /* μικρό polish */
-    html { scroll-behavior: smooth; }
-
-    @media (prefers-reduced-motion: reduce){
       .btn,
       .btn:hover,
       .btn:active{
@@ -521,7 +515,12 @@
   </main>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("img:not([loading])").forEach((img) => {
+        img.loading = "lazy";
+      });
+
+      document.getElementById("y").textContent = new Date().getFullYear();
 
     const projects = [
       {
@@ -616,6 +615,7 @@
 
       revealTargets.forEach((el) => revealObserver.observe(el));
     }
+  });
   </script>
 </body>
 </html>
