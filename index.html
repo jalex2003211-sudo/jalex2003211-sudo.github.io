@@ -63,6 +63,7 @@
       background: #0f172a;
       color:var(--text);
       line-height:1.55;
+      overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.9}
@@ -201,11 +202,12 @@
       .hero-actions,
       .hero-socials{
         flex-direction:column;
+        align-items:center;
       }
       .hero-actions .btn,
       .hero-socials .btn{
-        flex:1 1 100%;
-        width:100%;
+        width:auto;
+        max-width:100%;
       }
       .contact-card .btn{white-space:normal}
     }
@@ -309,8 +311,16 @@
       .proj .links{flex-direction:column; gap:8px}
       .cta .btn,
       .proj .links .btn{width:100%; flex:1 1 100%}
-      .hero-actions .btn{flex:1 1 100%; width:100%}
-      .hero-socials .btn{flex:1 1 100%}
+      .hero-actions,
+      .hero-socials{
+        flex-direction:column;
+        align-items:center;
+      }
+      .hero-actions .btn,
+      .hero-socials .btn{
+        width:auto;
+        max-width:100%;
+      }
       .chips{margin-top:10px}
       .contact-card{margin-top:14px}
     }
