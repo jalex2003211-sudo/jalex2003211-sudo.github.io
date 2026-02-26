@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alexandros Papadopoulos — Portfolio</title>
+  <meta name="description" content="Portfolio of Alexandros Papadopoulos (AlexPCodes), Full-Stack Developer." />
+  <meta name="theme-color" content="#0b0f19" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alexandros Papadopoulos — Full-Stack Developer" />
+  <meta property="og:description" content="Portfolio of Alexandros Papadopoulos (AlexPCodes), Full-Stack Developer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alexandros Papadopoulos — Full-Stack Developer" />
+<meta property="og:description" content="Product-minded Full-Stack Developer building modern web applications." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.alexpcodes.com/" />
+<meta property="og:image" content="https://www.alexpcodes.com/preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Alexandros Papadopoulos — Full-Stack Developer" />
+<meta name="twitter:description" content="Product-minded Full-Stack Developer building modern web applications." />
+<meta name="twitter:image" content="https://www.alexpcodes.com/preview.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
+
+  <style>
+    :root{
+      --bg:#0b0f19; --card:#11182b; --text:#e7ecff; --muted:#a9b4d0;
+      --line:rgba(255,255,255,.10); --accent:#7aa2ff;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: #0f172a;
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 22px 70px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,25,.78), rgba(11,15,25,.35));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{display:flex; gap:10px; align-items:center}
+    .dot{width:10px; height:10px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(122,162,255,.16)}
+    .brand strong{font-weight:700}
+    nav ul{list-style:none; padding:0; margin:0; display:flex; gap:14px; flex-wrap:wrap}
+    nav a{padding:8px 10px; border-radius:10px; color:var(--muted)}
+    nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,162,255,.22), rgba(122,162,255,.10));
+      border-color: rgba(122,162,255,.35);
+    }
+    .grid{display:grid; gap:16px}
+    .hero{
+      padding:44px 0 18px;
+      display:grid; gap:14px;
+    }
+    .kicker{color:var(--muted); font-weight:600; letter-spacing:.2px}
+    h1{font-size: clamp(34px, 6vw, 52px); margin:0; line-height:1.1}
+    .sub{
+      max-width: 70ch;
+      color:var(--muted);
+      font-size: clamp(16px, 2.2vw, 18px);
+      margin:0;
+    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:13px;
+    }
+    section{padding:28px 0}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      backdrop-filter: blur(6px);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+      margin-bottom:10px;
+    }
+    .section-title h2{margin:0; font-size:22px}
+    .section-title p{margin:0; color:var(--muted); font-size:14px}
+    .two{grid-template-columns: 1.2fr .8fr}
+    .three{grid-template-columns: repeat(2, minmax(0, 1fr))}
+    @media (max-width: 880px){
+      .two,.three{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      header{position:relative}
+    }
+    .item{padding:14px 0; border-top:1px solid var(--line)}
+    .item:first-child{border-top:none; padding-top:0}
+    .meta{display:flex; gap:10px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:14px}
+    .meta strong{color:var(--text)}
+    .bullets{margin:10px 0 0 0; padding-left:18px; color:var(--muted)}
+    .bullets li{margin:6px 0}
+    .proj{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      position:relative;
+      overflow:hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .proj::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(120deg, rgba(122,162,255,0.12), rgba(255,255,255,0.04), rgba(122,162,255,0.12));
+      opacity:0;
+      transition: opacity 0.35s ease;
+      pointer-events:none;
+    }
+
+    .proj:hover{
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 35px 80px rgba(0,0,0,0.65);
+      border:1px solid rgba(122,162,255,0.35);
+    }
+
+    .proj:hover::before{
+      opacity:1;
+    }
+
+    .proj .thumb{
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .proj:hover .thumb{
+      opacity: 0.92;
+      transform: scale(1.04);
+    }
+
+    .proj:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+    }
+
+    .proj .thumb{
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .proj:hover .thumb{
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+    .proj .thumb{
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      height: 160px;
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(255,255,255,.35);
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .proj h3{margin:0; font-size:18px}
+    .proj p{margin:0; color:var(--muted)}
+    .proj .links{display:flex; gap:10px; flex-wrap:wrap}
+    footer{
+      padding:28px 0 0; color:var(--muted);
+      border-top:1px solid var(--line); margin-top:22px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+    .contact-card{margin-top:18px}
+    .contact-card .cta{margin-top:14px}
+    .contact-card .btn{white-space:nowrap}
+
+    /* μικρό polish */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <div>
+          <strong>Alexandros Papadopoulos</strong><br/>
+          <span style="color:var(--muted); font-size:13px">Portfolio</span>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn primary" href="#contact">Let’s talk</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="kicker">aka <strong>@AlexPCodes</strong></div>
+      <h1>Alexandros Papadopoulos</h1>
+      <p class="sub">
+        Product-minded <strong>Full-Stack Developer</strong> building modern web apps end-to-end,
+        with focus on performance, clean architecture, and great UX.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/jalex2003211-sudo" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/%CE%B1%CE%BB%CE%AD%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%82-%CF%80%CE%B1%CF%80%CE%B1%CE%B4%CF%8C%CF%80%CE%BF%CF%85%CE%BB%CE%BF%CF%82-677680346/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn" href="https://www.instagram.com/alexandros__papadopoulos/" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="btn" href="https://www.youtube.com/@Rundy_bubble" target="_blank" rel="noreferrer">YouTube</a>
+        <a class="btn" href="assets/CV.pdf" target="_blank" rel="noreferrer">CV (PDF)</a>
+        <a class="btn" href="mailto:jalex200321@gmail.com">Email</a>
+      </div>
+
+      <div class="chips" aria-label="Highlights">
+        <span class="chip">Java</span>
+        <span class="chip">React</span>
+        <span class="chip">Selenium</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">Git</span>
+      </div>
+    </section>
+
+    <!-- ABOUT + NOW -->
+    <section id="about">
+      <div class="grid two">
+        <div class="card">
+          <div class="section-title">
+            <h2>About</h2>
+            <p>Who I am & what I do</p>
+          </div>
+
+          <p style="margin:0; color:var(--muted)">
+            I’m a Full-Stack Developer with experience in automation testing and web application development.
+            <br/><br/>
+            My background in quality assurance (Java & Selenium) helps me build software with a strong focus on reliability,
+            performance, and maintainability.
+            <br/><br/>
+            I have worked on scalable web applications using Java and React, contributing both to backend logic and frontend implementation.
+            Currently, I’m focused on growing as a product-oriented engineer and building impactful digital products.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <h2>Now</h2>
+            <p>What I’m focusing on</p>
+          </div>
+          <ul class="bullets">
+            <li>Building: <strong>Onera</strong> — Where connection unfolds</li>
+            <li>Building: <strong>SoseToExamino</strong> — Notion system for exam season</li>
+            <li>Looking for: <strong>Full-Stack opportunities</strong> & collaborations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="card">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>Impact, not responsibilities</p>
+        </div>
+
+        <div class="item">
+          <div class="meta">
+            <strong>Junior Automation Tester</strong>
+            <span>•</span>
+            <span>Intralot</span>
+          </div>
+          <ul class="bullets">
+            <li>Designed and executed automated test cases using <strong>Java & Selenium</strong> for enterprise-level systems.</li>
+            <li>Performed manual quality testing to improve reliability and reduce production defects.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Java</span>
+            <span class="chip">Selenium</span>
+            <span class="chip">Manual QA</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="meta">
+            <strong>Full-Stack Developer</strong>
+            <span>•</span>
+            <span>ApoloRnD</span>
+          </div>
+          <ul class="bullets">
+            <li>Developed web applications using <strong>Java (backend)</strong> and <strong>React (frontend)</strong>.</li>
+            <li>Contributed across the full development lifecycle, from backend APIs to responsive UI implementation.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Java</span>
+            <span class="chip">React</span>
+            <span class="chip">Web Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Selected work</p>
+      </div>
+
+      <div class="grid three">
+        <article class="card proj">
+          <div class="thumb">Onera</div>
+          <h3>Onera</h3>
+          <p>Where connection unfolds — a mobile application focused on meaningful digital interaction.</p>
+          <div class="chips">
+            <span class="chip">Mobile App</span>
+            <span class="chip">Product Development</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">App Store</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Play Store</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="thumb">SoseToExamino</div>
+          <h3>SoseToExamino</h3>
+          <p>Notion-based productivity system designed to help students survive exam season efficiently.</p>
+          <div class="chips">
+            <span class="chip">Productivity</span>
+            <span class="chip">Digital Product</span>
+            <span class="chip">Notion</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://soseto.gumroad.com/l/30meres-reset" target="_blank" rel="noreferrer">View Product</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="thumb">C++</div>
+          <h3>StrongPasswordGenerator</h3>
+          <p>A lightweight C++ tool that generates strong, customizable passwords with clear constraints and fast execution.</p>
+          <div class="chips">
+            <span class="chip">C++</span>
+            <span class="chip">CLI Tool</span>
+            <span class="chip">Security</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Code (GitHub soon)</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="thumb">Web</div>
+          <h3>Web Pages Services</h3>
+          <p>From scratch website development, installation & maintenance, plus AI FAQ chatbot setup for common questions.</p>
+          <div class="chips">
+            <span class="chip">Web Development</span>
+            <span class="chip">Maintenance</span>
+            <span class="chip">AI Chatbot</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="#contact">Link soon (contact me)</a>
+          </div>
+        </article>
+</div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="grid">
+        <div class="card">
+          <div class="section-title">
+            <h2>Skills</h2>
+            <p>What I use to ship</p>
+          </div>
+          <div class="grid" style="gap:10px">
+            <div>
+              <div class="meta"><strong>Frontend</strong></div>
+              <div class="chips">
+                <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+                <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Tailwind</span>
+              </div>
+            </div>
+            <div>
+              <div class="meta"><strong>Backend</strong></div>
+              <div class="chips">
+                <span class="chip">Java</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Auth</span>
+              </div>
+            </div>
+            <div>
+              <div class="meta"><strong>QA / Automation</strong></div>
+              <div class="chips">
+                <span class="chip">Selenium</span><span class="chip">Manual QA</span><span class="chip">Test Design</span>
+              </div>
+            </div>
+            <div>
+              <div class="meta"><strong>Tools & Other</strong></div>
+              <div class="chips">
+                <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">C++</span><span class="chip">AI Chatbot Setup</span>
+              </div>
+            </div>
+</div>
+          </div>
+        </div>
+
+        <div class="card contact-card" id="contact">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>Let’s build something</p>
+          </div>
+          <p style="margin:0 0 12px 0; color:var(--muted)">
+            For collaborations, freelance work, or opportunities — send me a message.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="mailto:jalex200321@gmail.com">jalex200321@gmail.com</a>
+            <a class="btn" href="https://www.linkedin.com/in/%CE%B1%CE%BB%CE%AD%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%82-%CF%80%CE%B1%CF%80%CE%B1%CE%B4%CF%8C%CF%80%CE%BF%CF%85%CE%BB%CE%BF%CF%82-677680346/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://www.instagram.com/alexandros__papadopoulos/" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="btn" href="https://www.youtube.com/@Rundy_bubble" target="_blank" rel="noreferrer">YouTube</a>
+            <a class="btn" href="https://github.com/jalex2003211-sudo" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p class="sr-only">Contact links</p>
+        </div>
+      </div>
+
+      <footer>
+        <span>© <span id="y"></span> Alexandros Papadopoulos</span>
+        <span style="color:rgba(255,255,255,.35)">Built with HTML/CSS • Deployed on Vercel/GitHub Pages</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
