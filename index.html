@@ -117,7 +117,9 @@
       .three{grid-template-columns: repeat(2, minmax(0, 1fr))}
     }
     @media (max-width: 880px){
-      .two{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      .two, .three{grid-template-columns: 1fr}
+      #about .grid.two{grid-template-columns: 1fr; gap:16px}
+      #skills .grid.two{grid-template-columns: 1fr}
       header{position:relative}
     }
     .reveal{
