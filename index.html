@@ -56,14 +56,13 @@
       --radius: 18px;
       --max: 1120px;
     }
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%; width:100%; overflow-x:hidden}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
       background: #0f172a;
       color:var(--text);
       line-height:1.55;
-      overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.9}
@@ -83,7 +82,7 @@
     .dot{width:10px; height:10px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(122,162,255,.16)}
     .brand strong{font-weight:700}
     nav ul{list-style:none; padding:0; margin:0; display:flex; gap:14px; flex-wrap:wrap}
-    nav a{padding:9px 11px; border-radius:10px; color:var(--muted); display:inline-flex; align-items:center; min-height:38px}
+    nav a{padding:8px 10px; border-radius:10px; color:var(--muted)}
     nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -93,8 +92,6 @@
       color:var(--text);
       text-align:center;
       line-height:1.35;
-      max-width:100%;
-      overflow-wrap:anywhere;
       transition: transform 220ms ease-out;
       will-change: transform;
     }
@@ -117,8 +114,6 @@
     .hero{
       padding:44px 0 18px;
       display:grid; gap:14px;
-      width:100%;
-      max-width:100%;
     }
     .kicker-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
     .kicker{color:var(--muted); font-weight:600; letter-spacing:.2px}
@@ -142,9 +137,9 @@
       font-size: clamp(16px, 2.2vw, 18px);
       margin:0;
     }
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; width:100%; max-width:100%}
-    .hero-actions{margin-top:12px; width:100%; max-width:100%}
-    .hero-socials{margin-top:8px; width:100%; max-width:100%}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .hero-actions{margin-top:12px}
+    .hero-socials{margin-top:8px}
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
     .chip{
       padding:8px 10px;
@@ -162,12 +157,6 @@
       border-radius: var(--radius);
       padding:18px;
       box-shadow: var(--shadow);
-      transition: transform 220ms ease-out, border-color 220ms ease-out, box-shadow 220ms ease-out;
-    }
-    .card:hover,
-    .card:focus-within{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.2);
     }
     .section-title{
       display:flex; align-items:baseline; justify-content:space-between; gap:12px;
@@ -200,13 +189,13 @@
       .brand{width:100%; justify-content:center}
       nav{order:3; width:100%}
       nav ul{gap:8px; justify-content:center}
-      nav a{padding:9px 11px}
+      nav a{padding:8px 9px}
       .nav > .btn{margin-left:0; width:100%}
       .cta{gap:8px}
-      .hero-actions,
-      .hero-socials{width:100%; max-width:100%}
       .hero-actions .btn,
-      .hero-socials .btn{max-width:100%}
+      .hero-socials .btn{
+        flex:1 1 calc(50% - 8px);
+      }
       .contact-card .btn{white-space:normal}
     }
     .reveal{
@@ -301,44 +290,13 @@
       .wrap{padding:20px 16px 56px}
       section{padding:18px 0}
       .hero{padding:26px 0 10px; gap:12px}
-      .card{padding:14px}
+      .card{padding:16px}
       h1{font-size:clamp(30px, 8.5vw, 38px); line-height:1.2}
-      .sub{line-height:1.78; max-width:62ch}
-      p, li{line-height:1.72}
-      .cta,
-      .proj .links{flex-direction:column; gap:8px}
-      .cta .btn,
-      .proj .links .btn{width:100%; flex:1 1 100%}
-      .hero-actions{
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-        width:100%;
-        max-width:100%;
-      }
-      .hero-actions .btn{
-        width:100%;
-        min-width:0;
-      }
-      .hero-socials{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:12px;
-        width:100%;
-        max-width:100%;
-      }
-      .hero-socials .btn{
-        width:100%;
-        min-width:0;
-      }
-      .hero,
-      .kicker-row,
-      .sub,
-      .chips{max-width:100%}
-      .kicker-row,
-      .sub{overflow-wrap:anywhere}
+      .sub{line-height:1.72}
+      .hero-actions .btn{flex:1 1 100%; width:100%}
+      .hero-socials .btn{flex:1 1 calc(50% - 8px)}
+      .proj .links .btn{width:100%}
       .chips{margin-top:10px}
-      .contact-card{margin-top:14px}
     }
 
     /* μικρό polish */
@@ -348,9 +306,6 @@
       html { scroll-behavior: auto; }
       .reveal,
       .reveal.visible,
-      .card,
-      .card:hover,
-      .card:focus-within,
       .proj,
       .proj::before,
       .proj .thumb{
@@ -405,12 +360,12 @@
         with clear user value, scalable architecture, and thoughtful user experience.
       </p>
 
-      <div class="cta hero-actions hero-primary-ctas">
+      <div class="cta hero-actions">
         <a class="btn primary" href="#projects">View Projects</a>
         <a class="btn" href="#contact">Contact</a>
       </div>
 
-      <div class="cta hero-socials hero-social-ctas" aria-label="Social links">
+      <div class="cta hero-socials" aria-label="Social links">
         <a class="btn primary" href="https://github.com/jalex2003211-sudo" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/%CE%B1%CE%BB%CE%AD%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%82-%CF%80%CE%B1%CF%80%CE%B1%CE%B4%CF%8C%CF%80%CE%BF%CF%85%CE%BB%CE%BF%CF%82-677680346/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a class="btn" href="assets/CV.pdf" target="_blank" rel="noreferrer">CV (PDF)</a>
@@ -656,7 +611,7 @@
       });
     });
 
-    const revealTargets = document.querySelectorAll("#about .card, #experience .card, #projects .proj, #skills .card");
+    const revealTargets = document.querySelectorAll("section, .proj, #about .card, #skills .card, #experience .card");
 
     if (!prefersReducedMotion && "IntersectionObserver" in window) {
       revealTargets.forEach((el) => el.classList.add("reveal"));
