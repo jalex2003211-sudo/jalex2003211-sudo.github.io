@@ -83,6 +83,11 @@
       background: linear-gradient(135deg, rgba(122,162,255,.22), rgba(122,162,255,.10));
       border-color: rgba(122,162,255,.35);
     }
+    .btn.disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      pointer-events:none;
+    }
     .grid{display:grid; gap:16px}
     .hero{
       padding:44px 0 18px;
@@ -441,63 +446,7 @@
         <p>Selected work</p>
       </div>
 
-      <div class="grid three">
-        <article class="card proj">
-          <div class="thumb">Onera</div>
-          <h3>Onera</h3>
-          <p>Where connection unfolds — a mobile application focused on meaningful digital interaction.</p>
-          <div class="chips">
-            <span class="chip">Mobile App</span>
-            <span class="chip">Product Development</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="#" target="_blank" rel="noreferrer">App Store</a>
-            <a class="btn" href="#" target="_blank" rel="noreferrer">Play Store</a>
-          </div>
-        </article>
-
-        <article class="card proj">
-          <div class="thumb">SoseToExamino</div>
-          <h3>SoseToExamino</h3>
-          <p>Notion-based productivity system designed to help students survive exam season efficiently.</p>
-          <div class="chips">
-            <span class="chip">Productivity</span>
-            <span class="chip">Digital Product</span>
-            <span class="chip">Notion</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://soseto.gumroad.com/l/30meres-reset" target="_blank" rel="noreferrer">View Product</a>
-          </div>
-        </article>
-
-        <article class="card proj">
-          <div class="thumb">C++</div>
-          <h3>StrongPasswordGenerator</h3>
-          <p>A lightweight C++ tool that generates strong, customizable passwords with clear constraints and fast execution.</p>
-          <div class="chips">
-            <span class="chip">C++</span>
-            <span class="chip">CLI Tool</span>
-            <span class="chip">Security</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="#" target="_blank" rel="noreferrer">Code (GitHub soon)</a>
-          </div>
-        </article>
-
-        <article class="card proj">
-          <div class="thumb">Web</div>
-          <h3>Web Pages Services</h3>
-          <p>End-to-end website delivery from scratch, including hosting setup, ongoing maintenance, and AI FAQ chatbot integration.</p>
-          <div class="chips">
-            <span class="chip">Web Development</span>
-            <span class="chip">Maintenance</span>
-            <span class="chip">AI Chatbot</span>
-          </div>
-          <div class="links">
-            <a class="btn" href="#contact">Request details</a>
-          </div>
-        </article>
-</div>
+      <div class="grid three" id="projectsGrid"></div>
     </section>
 
     <!-- SKILLS -->
@@ -566,6 +515,64 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    const projects = [
+      {
+        title: "Onera",
+        description: "Where connection unfolds — a mobile application focused on meaningful digital interaction.",
+        tags: ["Mobile App", "Product Development"],
+        links: [
+          { label: "App Store", href: "#" },
+          { label: "Play Store", href: "#" }
+        ]
+      },
+      {
+        title: "SoseToExamino",
+        description: "Notion-based productivity system designed to help students survive exam season efficiently.",
+        tags: ["Productivity", "Digital Product", "Notion"],
+        links: [
+          { label: "View Product", href: "https://soseto.gumroad.com/l/30meres-reset" }
+        ]
+      },
+      {
+        title: "StrongPasswordGenerator",
+        description: "A lightweight C++ tool that generates strong, customizable passwords with clear constraints and fast execution.",
+        tags: ["C++", "CLI Tool", "Security"],
+        links: [
+          { label: "Code (GitHub soon)", href: "https://github.com/jalex2003211-sudo/StrongPasswordGenerator", disabled: true }
+        ]
+      },
+      {
+        title: "Web Pages Services",
+        description: "End-to-end website delivery from scratch, including hosting setup, ongoing maintenance, and AI FAQ chatbot integration.",
+        tags: ["Web Development", "Maintenance", "AI Chatbot"],
+        links: [
+          { label: "Link soon available", disabled: true }
+        ]
+      }
+    ];
+
+    const projectsGrid = document.getElementById("projectsGrid");
+    projectsGrid.innerHTML = projects.map((project) => {
+      const chips = project.tags.map((tag) => `<span class="chip">${tag}</span>`).join("");
+      const links = project.links.map((link) => {
+        if (link.disabled) {
+          return `<span class="btn disabled" aria-disabled="true">${link.label}</span>`;
+        }
+
+        return `<a class="btn" href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`;
+      }).join("");
+
+      return `
+        <article class="card proj">
+          <div class="thumb">${project.title}</div>
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <div class="chips">${chips}</div>
+          <div class="links">${links}</div>
+        </article>
+      `;
+    }).join("");
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
