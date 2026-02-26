@@ -82,7 +82,7 @@
     .dot{width:10px; height:10px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(122,162,255,.16)}
     .brand strong{font-weight:700}
     nav ul{list-style:none; padding:0; margin:0; display:flex; gap:14px; flex-wrap:wrap}
-    nav a{padding:8px 10px; border-radius:10px; color:var(--muted)}
+    nav a{padding:9px 11px; border-radius:10px; color:var(--muted); display:inline-flex; align-items:center; min-height:38px}
     nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -157,6 +157,12 @@
       border-radius: var(--radius);
       padding:18px;
       box-shadow: var(--shadow);
+      transition: transform 220ms ease-out, border-color 220ms ease-out, box-shadow 220ms ease-out;
+    }
+    .card:hover,
+    .card:focus-within{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.2);
     }
     .section-title{
       display:flex; align-items:baseline; justify-content:space-between; gap:12px;
@@ -189,7 +195,7 @@
       .brand{width:100%; justify-content:center}
       nav{order:3; width:100%}
       nav ul{gap:8px; justify-content:center}
-      nav a{padding:8px 9px}
+      nav a{padding:9px 11px}
       .nav > .btn{margin-left:0; width:100%}
       .cta{gap:8px}
       .hero-actions .btn,
@@ -290,13 +296,18 @@
       .wrap{padding:20px 16px 56px}
       section{padding:18px 0}
       .hero{padding:26px 0 10px; gap:12px}
-      .card{padding:16px}
+      .card{padding:14px}
       h1{font-size:clamp(30px, 8.5vw, 38px); line-height:1.2}
-      .sub{line-height:1.72}
+      .sub{line-height:1.78; max-width:62ch}
+      p, li{line-height:1.72}
+      .cta,
+      .proj .links{flex-direction:column; gap:8px}
+      .cta .btn,
+      .proj .links .btn{width:100%; flex:1 1 100%}
       .hero-actions .btn{flex:1 1 100%; width:100%}
-      .hero-socials .btn{flex:1 1 calc(50% - 8px)}
-      .proj .links .btn{width:100%}
+      .hero-socials .btn{flex:1 1 100%}
       .chips{margin-top:10px}
+      .contact-card{margin-top:14px}
     }
 
     /* μικρό polish */
@@ -306,6 +317,9 @@
       html { scroll-behavior: auto; }
       .reveal,
       .reveal.visible,
+      .card,
+      .card:hover,
+      .card:focus-within,
       .proj,
       .proj::before,
       .proj .thumb{
@@ -611,7 +625,7 @@
       });
     });
 
-    const revealTargets = document.querySelectorAll("section, .proj, #about .card, #skills .card, #experience .card");
+    const revealTargets = document.querySelectorAll("#about .card, #experience .card, #projects .proj, #skills .card");
 
     if (!prefersReducedMotion && "IntersectionObserver" in window) {
       revealTargets.forEach((el) => el.classList.add("reveal"));
